@@ -372,7 +372,7 @@ logoutBtn.addEventListener('click', async () => {
 
   logoutBtn.classList.add('hidden')
 
-  loginBtn.classList.add('hidden')
+loginBtn.classList.remove('hidden')
 
   document.querySelector('#emailInput').value = ''
 
@@ -391,7 +391,7 @@ async function checkUser() {
       .querySelector('.form')
       .classList.remove('hidden')
 
-    logoutBtn.classList.add('hidden')
+    logoutBtn.classList.remove('hidden')
 
     loginBtn.classList.add('hidden')
 
