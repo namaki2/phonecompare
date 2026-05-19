@@ -46,6 +46,10 @@ document.querySelector('#app').innerHTML = `
     Login
   </button>
 
+  <button id="googleBtn">
+  Continue with Google
+   </button>
+
   <button id="cancelLoginBtn">
     Cancel
   </button>
@@ -340,6 +344,8 @@ addPhoneBtn.addEventListener('click', async () => {
 })
 const loginBtn = document.querySelector('#loginBtn')
 
+const googleBtn = document.querySelector('#googleBtn')
+
 loginBtn.addEventListener('click', async () => {
 
 document
@@ -367,8 +373,7 @@ logoutBtn.addEventListener('click', async () => {
 
   document
     .querySelector('.form')
-
-.classList.add('hidden')
+    .classList.add('hidden')
 
   logoutBtn.classList.add('hidden')
 
@@ -377,6 +382,19 @@ logoutBtn.addEventListener('click', async () => {
   document.querySelector('#emailInput').value = ''
 
 document.querySelector('#passwordInput').value = ''
+})
+googleBtn.addEventListener('click', async () => {
+
+  await supabase.auth.signInWithOAuth({
+    provider: 'google',
+
+    options: {
+      queryParams: {
+        prompt: 'select_account'
+      }
+    }
+  })
+
 })
 
 async function checkUser() {
