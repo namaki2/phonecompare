@@ -385,15 +385,17 @@ document.querySelector('#passwordInput').value = ''
 })
 googleBtn.addEventListener('click', async () => {
 
-  await supabase.auth.signInWithOAuth({
-    provider: 'google',
+await supabase.auth.signInWithOAuth({
+  provider: 'google',
 
-    options: {
-      queryParams: {
-        prompt: 'select_account'
-      }
+  options: {
+    redirectTo: 'http://localhost:5173',
+
+    queryParams: {
+      prompt: 'select_account'
     }
-  })
+  }
+})
 
 })
 
