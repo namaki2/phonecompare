@@ -119,7 +119,38 @@ select {
   z-index: 1000;
 }
 
+.signup-form {
+  position: fixed;
+
+  top: 50%;
+  left: 50%;
+
+  transform: translate(-50%, -50%);
+
+  width: 300px;
+
+  padding: 20px;
+
+  border-radius: 12px;
+
+  background: #1e1e1e;
+
+  flex-direction: column;
+
+  gap: 10px;
+
+  z-index: 1000;
+}
+
 .login-form input {
+
+  .signup-form input {
+  padding: 10px;
+
+  border: none;
+
+  border-radius: 8px;
+}
   padding: 10px;
 
   border: none;
@@ -128,6 +159,16 @@ select {
 }
 
 .login-form button {
+
+  .signup-form button {
+  padding: 10px;
+
+  border: none;
+
+  border-radius: 8px;
+
+  cursor: pointer;
+}
   padding: 10px;
 
   border: none;

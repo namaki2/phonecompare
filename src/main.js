@@ -12,11 +12,41 @@ document.querySelector('#app').innerHTML = `
       Login
     </button>
 
+    <button id="signupBtn">
+  Sign Up
+     </button>
+
     <button id="logoutBtn" class="hidden">
       Logout
     </button>
 
   </div>
+
+</div>
+
+<div class="signup-form hidden">
+
+  <h2>Create Account</h2>
+
+  <input
+    type="email"
+    id="signupEmail"
+    placeholder="Email"
+  />
+
+  <input
+    type="password"
+    id="signupPassword"
+    placeholder="Password"
+  />
+
+  <button id="createAccountBtn">
+    Create Account
+  </button>
+
+  <button id="cancelSignupBtn">
+  Cancel
+</button>
 
 </div>
 
@@ -356,6 +386,18 @@ document
   .querySelector('.overlay')
   .classList.remove('hidden')
   })
+  const signupBtn = document.querySelector('#signupBtn')
+
+signupBtn.addEventListener('click', async () => {
+
+  document
+    .querySelector('.signup-form')
+    .classList.remove('hidden')
+
+  document
+    .querySelector('.overlay')
+    .classList.remove('hidden')
+})
 
 
 
@@ -396,6 +438,45 @@ await supabase.auth.signInWithOAuth({
     }
   }
 })
+
+})
+
+const createAccountBtn =
+  document.querySelector('#createAccountBtn')
+
+const cancelSignupBtn =
+  document.querySelector('#cancelSignupBtn')
+
+cancelSignupBtn.addEventListener('click', () => {
+
+  document
+    .querySelector('.signup-form')
+    .classList.add('hidden')
+
+  document
+    .querySelector('.overlay')
+    .classList.add('hidden')
+})
+
+createAccountBtn.addEventListener('click', async () => {
+
+  const email =
+    document.querySelector('#signupEmail').value
+
+  const password =
+    document.querySelector('#signupPassword').value
+
+  const { error } = await supabase.auth.signUp({
+    email,
+    password
+  })
+
+  if (error) {
+    alert(error.message)
+    return
+  }
+
+  alert('Account created! Check your email.')
 
 })
 
