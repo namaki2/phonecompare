@@ -314,7 +314,7 @@ sortSelect.addEventListener('change', (e) => {
 
   const value = e.target.value
 
-  let sortedPhones = [...phones]
+  let sortedPhones = [...selectedPhones]
 
   if (value === 'battery') {
 
@@ -337,7 +337,14 @@ sortSelect.addEventListener('change', (e) => {
     )
   }
 
-  displayPhones(sortedPhones)
+  selectedPhones = sortedPhones
+
+  localStorage.setItem(
+    'selectedPhones',
+    JSON.stringify(selectedPhones)
+  )
+
+  updateComparison()
 })
 const addPhoneBtn = document.querySelector('#addPhoneBtn')
 
