@@ -371,6 +371,19 @@ addPhoneBtn.addEventListener('click', async () => {
   alert('Phone Added')
 
   getPhones()
+
+  document.querySelector('#brandInput').value = ''
+
+document.querySelector('#modelInput').value = ''
+
+document.querySelector('#ramInput').value = ''
+
+document.querySelector('#batteryInput').value = ''
+
+document.querySelector('#cameraInput').value = ''
+
+document.querySelector('#imageInput').value = ''
+
 })
 const loginBtn = document.querySelector('#loginBtn')
 
