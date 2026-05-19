@@ -372,7 +372,7 @@ logoutBtn.addEventListener('click', async () => {
 
   logoutBtn.classList.add('hidden')
 
-loginBtn.classList.remove('hidden')
+  loginBtn.classList.remove('hidden')
 
   document.querySelector('#emailInput').value = ''
 
